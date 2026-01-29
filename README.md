@@ -1,19 +1,9 @@
 # zaynahasfour.github.io
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My Repo Page</title>
-  <style>
-    body {
-      background-color: pink;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
-    }
-  </style>
-</head>
-<body>
-  <h1>🌸 Welcome to my repo 🌸</h1>
-  <p>This page is pink!</p>
-</body>
-</html>
+<div style="background-color:#ffc0cb; padding:25px; border-radius:20px;">
+
+<h1 align="center">🌸 My Pink Repository 🌸</h1>
+
+<p align="center">
+Welcome to my repo! 💕  
+This project is cute, organized, and pink ✨
+</p>
