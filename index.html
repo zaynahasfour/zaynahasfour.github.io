@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: #ffc0cb;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      margin: 0 0 15px;
+      font-size: 2rem;
+      color: #ff2d6f;
+    }
+
+    #message {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 14px 26px;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, font-size 0.2s ease;
+    }
+
+    #yesBtn {
+      background: #32cd32;
+      color: white;
+      font-weight: bold;
+    }
+
+    #noBtn {
+      background: #ff4d4d;
+      color: white;
+      font-weight: bold;
+    }
+
+    #result {
+      display: none;
+      margin-top: 25px;
+    }
+
+    #result img {
+      width: 220px;
+      max-width: 90%;
+      border-radius: 20px;
+      margin-top: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    #wooText {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ff2d6f;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="mainCard">
+    <h1>💘 Will you be my valentine? 💘</h1>
+    <div id="message">Choose wisely 😌</div>
+
+    <div class="buttons" id="btnArea">
+      <button id="yesBtn">YES</button>
+      <button id="noBtn">NO</button>
+    </div>
+
+    <div id="result">
+      <div id="wooText">WOOOOOOOOOOOOOOO YOU'RE MY VALENTINE!!!!</div>
+      <img id="happyImg" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Happy" />
+    </div>
+  </div>
+
+  <script>
+    const noMessages = [
+      "Are you sure",
+      "Cmon think about it",
+      "You won’t regret it",
+      "You’ll love it",
+      "PLEASEEEE 🙏",
+      "You're so awesome please",
+      "you NEED tis trust me",
+    ];
+
+    let noCount = 0;
+    let yesSize = 1;
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+    const result = document.getElementById("result");
+    const btnArea = document.getElementById("btnArea");
+
+    noBtn.addEventListener("click", () => {
+      // Change the message each time NO is clicked
+      message.textContent = noMessages[noCount % noMessages.length];
+      noCount++;
+
+      // Make YES button bigger each time
+      yesSize += 0.25;
+      yesBtn.style.transform = `scale(${yesSize})`;
+
+      // Optional: make NO button slightly smaller
+      noBtn.style.transform = `scale(${Math.max(1 - noCount * 0.05, 0.6)})`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      // Hide buttons and show result
+      btnArea.style.display = "none";
+      message.style.display = "none";
+      result.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
